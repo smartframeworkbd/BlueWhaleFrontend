@@ -1,20 +1,26 @@
 "use client"
 import { useState } from "react"
-import { useGetProductQuery } from "@/redux/Api/feature/productApi"
+import { useGetProductCategoryQuery, useGetProductQuery } from "@/redux/Api/feature/productApi"
 import Image from "next/image"
 import Link from "next/link"
 
 const ShopArea = () => {
     const {data, isSuccess} = useGetProductQuery()
+
+    const {data:categoryData,isSuccess:categorySuccess}= useGetProductCategoryQuery()
     const [selectedCategory, setSelectedCategory] = useState(null)
 
+
+
+    console.log(categoryData);
+    
     const handleCategoryClick = (category) => {
         setSelectedCategory(category)
     }
 
     // Filter the products based on the selected category
     const filteredProducts = selectedCategory 
-        ? data?.data.filter(item => item.category === selectedCategory)
+        ? data?.data.filter(item => item.categoryId === selectedCategory)
         : data?.data
 
     return (
@@ -26,11 +32,18 @@ const ShopArea = () => {
                         <div className="category-sidebar">
                             <h3>Categories</h3>
                             <ul>
-                                {/* Example categories, you can dynamically load these */}
-                                <li onClick={() => handleCategoryClick("Electronics")}>Electronics</li>
-                                <li onClick={() => handleCategoryClick("Fashion")}>Fashion</li>
-                                <li onClick={() => handleCategoryClick("Home & Kitchen")}>Home & Kitchen</li>
-                                <li onClick={() => handleCategoryClick("Sports")}>Sports</li>
+
+                                {
+
+                                    categorySuccess && categoryData?.data?.map(item=> 
+                    <li onClick={() => handleCategoryClick(item.Id)}>
+                        {item?.categoryName}
+                    </li>
+
+
+                                )
+                                }
+                               
                                 <li onClick={() => handleCategoryClick(null)}>All Categories</li>
                             </ul>
                         </div>
