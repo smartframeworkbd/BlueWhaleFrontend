@@ -58,7 +58,7 @@ const Product = () => {
                                 {isSuccess && data?.data?.map((item) => {
                                     const imageArray = JSON.parse(item?.productImage);
                                     const imageUrl = imageArray && imageArray[0]?.imageUrl 
-                                    ? `${imageArray[0]?.imageUrl}?height=370&width=320` 
+                                    ? `${imageArray[0]?.imageUrl}?height=250&width=320` 
                                     : "/default-image.jpg?height=100&width=120";
                                     return (
                                         <SwiperSlide key={item.id}>
@@ -68,7 +68,7 @@ const Product = () => {
                                                         <Image
                                                             src={imageUrl}
                                                             width={338}
-                                                            height={375}
+                                                            height={250}
                                                             alt="img"
                                                         />
                                                     </Link>
@@ -81,7 +81,7 @@ const Product = () => {
                                                    
                                                 </div>
                                                 <div className="product-content">
-                                                    <h4 className="title ">
+                                                    <h4 className="title text-black">
                                                         <Link className="text-decoration-none" href={`/shop-details/${item.productSlug}`}>{item.productTitle}</Link>
                                                     </h4>
                                                     {/* <Link href="/shop-details" className="add-cart-btn">
