@@ -71,7 +71,7 @@ const ShopArea = () => {
                                                     )}
                                                 </div>
                                                 <div className="product-content">
-                                                    <h4 className="title">
+                                                    <h4 className="title text-black">
                                                         <Link href={`/shop-details/${item?.productSlug}`}>
                                                             {item.productTitle}
                                                         </Link>
