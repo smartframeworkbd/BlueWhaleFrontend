@@ -726,7 +726,7 @@ label {
 	width: 56px;
 	height: 56px;
 	display: flex;
-	background-color: rgba(254, 255, 254, 0.06);
+	background-color:#3657cd;
 	border-radius: 50%;
 	align-items: center;
 	justify-content: center;
@@ -1338,6 +1338,7 @@ label {
 
 .brand-two-area .brand-wrap {
 	/* padding: 115px 0 120px; */
+	padding-bottom: 24px;
 	border-top: none;
 	border-bottom: 1px solid rgba(254, 255, 254, 0.1);
 }

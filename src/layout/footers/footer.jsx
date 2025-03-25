@@ -44,6 +44,8 @@ const Footer = () => {
                         <div className="col-xl-3 col-lg-4 col-sm-6">
                             <div className="footer-widget">
                                 <div className="footer-contact-info">
+                                {/* <h4 className="number">""</h4> */}
+
                                     <h4 className="number">{number}</h4>
                                     <h4 className="email">{email} </h4>
                                     <p>{des}</p>
@@ -81,7 +83,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="copyright-wrap">
-                    <p className="copyright-text">Copyright ©2025 Design By <span>Smart Framework BD</span></p>
+                    <p className="copyright-text">Copyright ©2025. Blue Whale Trading LLC. Design & Developed By <span> <a target='_blank' href='http://smartframeworkbd.com/'>Smart Framework</a></span></p>
                 </div>
             </div>
         </footer>

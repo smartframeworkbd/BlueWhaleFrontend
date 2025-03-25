@@ -55,7 +55,7 @@ const Blog = ({ style, style_2 }) => {
                 <div className="row justify-content-center">
                     <div className="col-xl-6 col-lg-7 col-md-10">
                         <div className="section-title text-center mb-60">
-                            <h2 className="title">Get the Latest Articles </h2>
+                            <h2 className="title">Get the Updates  </h2>
                         </div>
                     </div>
                 </div>

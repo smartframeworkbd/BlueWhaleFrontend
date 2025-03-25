@@ -38,7 +38,7 @@ const Product = () => {
                                 spaceBetween={20} // Space between slides
                                 slidesPerView={4} // Number of slides per view
                                 navigation // Enable navigation arrows
-                                pagination={{ clickable: true }} // Enable pagination dots
+                                // pagination={{ clickable: true }} // Enable pagination dots
                                 breakpoints={{
                                     // Responsive breakpoints
                                     320: {

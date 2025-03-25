@@ -42,7 +42,7 @@ const BlogDetailsArea = () => {
                                 </div>
                             </div>
                         </div>
-                        <div className="blog-avatar-wrap">
+                        {/* <div className="blog-avatar-wrap">
                             <div className="blog-post-avatar-img">
                                 <Image src="/assets/img/blog/avatar_img.jpg" width={170} height={171} alt="img" />
                             </div>
@@ -51,8 +51,8 @@ const BlogDetailsArea = () => {
                                 <h4 className="name"><a href="#">Morgan Cooper</a></h4>
                                 <p>Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat possimus omnis voluptas est omnis dolor repellendus.</p>
                             </div>
-                        </div>
-                        <div className="comment-wrap">
+                        </div> */}
+                        {/* <div className="comment-wrap">
                             <div className="comment-form-title">
                                 <h4 className="title">Comments (1)</h4>
                             </div>
@@ -80,8 +80,8 @@ const BlogDetailsArea = () => {
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div className="post-comment-form">
+                        </div> */}
+                        {/* <div className="post-comment-form">
                             <div className="comment-respond">
                                 <div className="comment-form-title">
                                     <h4 className="title">Leave a Reply</h4>
@@ -108,7 +108,7 @@ const BlogDetailsArea = () => {
                                     </button>
                                 </form>
                             </div>
-                        </div>
+                        </div> */}
                     </div>
                     <BlogSidebar />
                 </div>
