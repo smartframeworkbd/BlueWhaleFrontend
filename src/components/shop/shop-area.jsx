@@ -61,7 +61,7 @@ const ShopArea = () => {
                                             <div className="shop-item">
                                                 <div className="product-thumb">
                                                     <Link href={`/shop-details/${item?.productSlug}`}>
-                                                        <Image src={imageUrl} width={338} height={375} alt="img" />
+                                                        <Image src={imageUrl} width={338} height={250} alt="img" />
                                                     </Link>
 
                                                     {item.productPriceIsDisplayed && (
