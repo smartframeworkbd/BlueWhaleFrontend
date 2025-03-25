@@ -14,9 +14,9 @@ const OffCanvas = ({ offcanvasOpen, setOffcanvasOpen }) => {
                         <p>Nam libero tempore, cum soluta nobis eligendi cumque quod placeat facere possimus assumenda omnis dolor repellendu sautem temporibus officiis</p>
                     </div>
                     <div className="offcanvas-contact footer-contact-info">
-                        <h4 className="number">+1 488 246 5357</h4>
-                        <h4 className="email">cycure.agency@mail.com</h4>
-                        <p>3828 Delmas Terrace, Culver City, <br /> CA, United States</p>
+                        <h4 className="number">01816035135</h4>
+                        <h4 className="email">info@bluewhale19.com</h4>
+                        <p>Abu Dhabi, United Arab Emirates, <br /> </p>
                         <ul className="footer-social list-wrap">
                             <li><Link href="#"><i className="fab fa-facebook-f"></i></Link></li>
                             <li><Link href="#"><i className="fab fa-twitter"></i></Link></li>

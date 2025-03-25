@@ -4,16 +4,16 @@ import Link from "next/link";
 const contact_data = [
     {
         id: 1,
-        icon: "flaticon-chat",
-        title: "Chat With Us",
-        des: (<>We&apos;ve got live Social Experts waiting to help you monday to friday from 9am to 5pm EST.</>),
-        btn: "Chat with us",
+        icon: "flaticon-map",
+        title: "Get in Touch",
+    des: (<>Our support team is available to assist you Monday to Friday from 9 AM to 5 PM EST. Reach out anytime!</>),
+    btn: "Abu Dhabi, United Arab Emirates",
     },
     {
         id: 2,
         icon: "flaticon-open-mail",
         title: "Send Us Email",
-        des: (<>Simple drop us an email at cycure.agency@mail.com and you&apos;ll receive a reply within 24 hours</>),
+        des: (<>Simple drop us an email at info@bluewhale19.com and you&apos;ll receive a reply within 24 hours</>),
         btn: "Email Us",
     },
     {
@@ -21,7 +21,7 @@ const contact_data = [
         icon: "flaticon-open-mail",
         title: "Make a Call",
         des: (<>Give us a ring.Our Experts are standing by monday to friday from 9am to 5pm EST.</>),
-        btn: "+1 488 246 5357",
+        btn: "01816035135",
     },
 ]
 

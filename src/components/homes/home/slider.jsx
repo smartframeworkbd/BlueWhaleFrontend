@@ -145,7 +145,7 @@ export default function ProductSlider() {
                   <div className="col-md-6 d-flex flex-column justify-content-center text-white" style={styles.content}>
                     <h2 className="display-4 mb-3" style={styles.title}>{product.title}</h2>
                     <p className="lead mb-4" style={styles.description}>{product.description}</p>
-                    <div className="d-flex flex-wrap gap-3">
+                    <div className="d-flex flex-wrap gap-3 justify-content-center">
                       <a 
                         href={product.readMoreLink} 
                         className="btn btn-lg px-4 py-2"

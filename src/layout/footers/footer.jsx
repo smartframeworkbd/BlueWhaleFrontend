@@ -8,29 +8,29 @@ const footer_data = [
         class: "column-2",
         links: [
             { list: "About us", link: "/about-us" },
-            { list: "Case Studies", link: "/srevices" },
-            { list: "Terms & Conditions", link: "/contact" },
-            { list: "Privacy Poilicy", link: "/contact" },
+            // { list: "Case Studies", link: "/srevices" },
+            { list: "Faq", link: "/faqs" },
+            { list: "Product", link: "/product" },
             { list: "Contact Us", link: "/contact" },
         ]
     },
     {
         id: 2,
-        title: "Our Services",
+        title: "Our Products ",
         class: "column-3",
         links: [
-            { list: "Spyware Protection", link: "/services-details" },
-            { list: "Fast Cloud Backup", link: "/services-details" },
-            { list: "Database Security", link: "/services-details" },
-            { list: "Transaction Security", link: "/services-details" },
-            { list: "Spambot Shield", link: "/services-details" },
+            { list: "Spices & Herbs", link: "/product" },
+            { list: "Fruits", link: "/product" },
+            { list: "Vegetables", link: "/product" },
+            { list: "Transaction Security", link: "/product" },
+            { list: "Sweetener", link: "/product" },
         ]
     }
 ]
 const footer_content = {
-    number: "+1 488 246 5357",
-    email: "cycure.agency@mail.com",
-    des: (<>3828 Delmas Terrace, Culver City, <br/> CA, United States</>),
+    number: "01816035135",
+    email: "info@bluewhale19.com",
+    des: (<>Abu Dhabi, United Arab Emirates, <br/> </>),
     icon: ["fab fa-facebook-f", "fab fa-twitter", "fab fa-instagram"]
 }
 const { number, email, des, icon } = footer_content;
@@ -81,7 +81,7 @@ const Footer = () => {
                     </div>
                 </div>
                 <div className="copyright-wrap">
-                    <p className="copyright-text">Copyright ©2023 Design By <span>ThemeDox</span></p>
+                    <p className="copyright-text">Copyright ©2025 Design By <span>Smart Framework BD</span></p>
                 </div>
             </div>
         </footer>
