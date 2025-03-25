@@ -82,7 +82,7 @@ const Product = () => {
                                                 </div>
                                                 <div className="product-content">
                                                     <h4 className="title ">
-                                                        <Link className="text-decoration-none" href="/shop-details">{item.productTitle}</Link>
+                                                        <Link className="text-decoration-none" href={`/shop-details/${item.productSlug}`}>{item.productTitle}</Link>
                                                     </h4>
                                                     {/* <Link href="/shop-details" className="add-cart-btn">
                                                         {item.btn}
