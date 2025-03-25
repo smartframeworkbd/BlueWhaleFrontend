@@ -30,7 +30,7 @@ const Team = ({ inner_team }) => {
                         ))}
                     </div>
                 </div>
-                <div className="row">
+                {/* <div className="row">
                     <div className="col-12">
                         <div className="team-btn text-center">
                             <Link href="/team" className="btn btn-style-two">
@@ -39,7 +39,7 @@ const Team = ({ inner_team }) => {
                             </Link>
                         </div>
                     </div>
-                </div>
+                </div> */}
             </div>
         </section>
     )

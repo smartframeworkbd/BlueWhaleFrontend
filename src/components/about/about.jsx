@@ -7,6 +7,7 @@ import Marquee from "@/common/marquee";
 import Testimonial from "@/common/testimonial";
 import Blog from "@/common/blog";
 import Header from "@/layout/headers/header";
+import MissionVision from "../mission-vission/MissionVision";
 
 const AboutMain = () => {
   return (
@@ -16,6 +17,8 @@ const AboutMain = () => {
         <Breadcrumb title="About Us" sm_title="About Us" />
         <About style={true} />
         <Counter style={true} />
+
+        <MissionVision/>
         <Team />
         <StepsArea style={true} />
         <Marquee />

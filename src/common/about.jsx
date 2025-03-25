@@ -3,8 +3,12 @@ import Image from "next/image";
 
 const about_content = {
     title: "Welcome to Blue whale",
-    des: (<>Nam libero tempore, cum soluta nobis eligendi optio cumque quo minus quod maxime placeat facere possimus assumenda omnis dolor repellendu sautem Temporibus quibusdam et aut officiis nam libero tempore</>),
-    list: ["Understand security and compliance", "Extremely low response time", "Always ready for your growth"],
+    des: (<>
+    Established in 2023, Blue Whale General Trading LLC is a fast-growing general trading company based in Dubai, United Arab Emirates. We specialize in the Food, Beverages, and Personal Care sectors, offering high-quality products at competitive prices.
+    <br></br>
+    Our commitment to excellence has made us a trusted name in the industry.
+    </>),
+    list: ["Wide Range of High-Quality Products", "Commitment to Nourishing Communities", "Partnering with global growers and suppliers to deliver top-quality products at the best prices in the UAE"],
     btn: "Read More"
 }
 const { title, des, list, btn } = about_content;

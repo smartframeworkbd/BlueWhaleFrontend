@@ -19,7 +19,7 @@ const menu_data = [
         link: "#",
 
         sub_menus: [
-            { link: "/company-profile", title: "about-us" },
+            { link: "/about-us", title: "Company Profile " },
             // { link: "/certifications", title: "Certifications" },
             { link: "/team", title: "Our Team" },
             { link: "/our-team", title: "achievement" },
