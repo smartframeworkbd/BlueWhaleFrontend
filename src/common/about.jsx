@@ -15,7 +15,7 @@ const About = ({ style }) => {
                 <div className="row align-items-center">
                     <div className="col-lg-6">
                         <div className="about-img">
-                        <Image src="/assets/img/others/about.png" width={705} height={567} alt="theme-pure" />
+                        <Image src="/assets/img/others/welcome.jpg" width={705} height={567} alt="theme-pure" />
                         </div>
                     </div>
                     <div className="col-lg-6 col-md-11">
