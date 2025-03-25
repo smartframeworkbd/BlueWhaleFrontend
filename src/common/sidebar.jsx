@@ -14,7 +14,7 @@ const Sidebar = ({ isActive, setIsActive }) => {
                     </div>
                     <div className="nav-logo">
                         <Link href="/">
-                            <Image src="/assets/img/logo/logo.jpeg" width={129} height={39} alt="" title="" />
+                            <Image src="/assets/img/logo/logo-final.png" width={129} height={39} alt="" title="" />
                         </Link>
                     </div>
                     <div className="menu-outer">

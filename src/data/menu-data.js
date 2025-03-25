@@ -97,7 +97,7 @@ const menu_data = [
         mega_menu: false,
         has_dropdown: false,
         title: "faqs",
-        link: "/faqs",
+        link: "/faq",
     },
     {
         id: 7,

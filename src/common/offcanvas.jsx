@@ -10,8 +10,13 @@ const OffCanvas = ({ offcanvasOpen, setOffcanvasOpen }) => {
                 </div>
                 <div className="offCanvas-body">
                     <div className="offCanvas-content">
-                        <h3 className="title">Digital safety <span>starts here</span> for both commercial and personal</h3>
-                        <p>Nam libero tempore, cum soluta nobis eligendi cumque quod placeat facere possimus assumenda omnis dolor repellendu sautem temporibus officiis</p>
+                        <h3 className="title">Premium Products for a Healthier Tomorrow</h3>
+                        <p>
+                            
+                        Dedicated to delivering high-quality food, beverages, and personal care products, Blue Whale General Trading LLC empowers communities by providing sustainable, nourishing solutions for everyday living                            
+                            </p>
+                   
+                   
                     </div>
                     <div className="offcanvas-contact footer-contact-info">
                         <h4 className="number">01816035135</h4>
