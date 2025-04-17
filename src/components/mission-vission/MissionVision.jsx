@@ -1,7 +1,8 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 
-const MissionVision = () => {
+const MissionVision = ({ childContentData }) => {
+    if (!childContentData || childContentData?.data?.length === 0) return null;
     return (
         <section style={{
             backgroundColor: "#f8f9fa",
@@ -43,17 +44,21 @@ const MissionVision = () => {
                         </h2>
 
                         <Row className="gy-4">
-                            <Col md={6}>
-                                <div style={{
-                                    background: "white",
-                                    borderRadius: "10px",
-                                    boxShadow: "0 5px 15px rgba(0, 0, 0, 0.05)",
-                                    transition: "transform 0.3s ease, box-shadow 0.3s ease",
-                                    borderTop: "4px solid #4e73df",
-                                    padding: "2rem",
-                                    height: "100%"
-                                }}>
+
+
+                            {
+                                childContentData.map(data=>
+                                    <Col md={6} key={item.Id || idx}>
                                     <div style={{
+                                      background: "white",
+                                      borderRadius: "10px",
+                                      boxShadow: "0 5px 15px rgba(0, 0, 0, 0.05)",
+                                      transition: "transform 0.3s ease, box-shadow 0.3s ease",
+                                      borderTop: "4px solid #4e73df",
+                                      padding: "2rem",
+                                      height: "100%"
+                                    }}>
+                                      <div style={{
                                         width: "70px",
                                         height: "70px",
                                         display: "flex",
@@ -63,31 +68,40 @@ const MissionVision = () => {
                                         backgroundColor: "rgba(78, 115, 223, 0.1)",
                                         color: "#4e73df",
                                         marginBottom: "1.5rem"
-                                    }}>
+                                      }}>
                                         <svg xmlns="http://www.w3.org/2000/svg" width="48" height="48" fill="currentColor" viewBox="0 0 16 16">
-                                            <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
+                                          <path d="M8 16A8 8 0 1 0 8 0a8 8 0 0 0 0 16zm.93-9.412-1 4.705c-.07.34.029.533.304.533.194 0 .487-.07.686-.246l-.088.416c-.287.346-.92.598-1.465.598-.703 0-1.002-.422-.808-1.319l.738-3.468c.064-.293.006-.399-.287-.47l-.451-.081.082-.381 2.29-.287zM8 5.5a1 1 0 1 1 0-2 1 1 0 0 1 0 2z" />
                                         </svg>
-                                    </div>
-                                    <h3 style={{ color: "#4e73df", marginBottom: "1rem" }}>Our Mission</h3>
-                                    <div style={{ lineHeight: "1.6" }}>
-                                        <p>At Blue Whale, we are committed to nourishing and inspiring our communities to live better lives. This ethos is reflected in everything we do:</p>
+                                      </div>
+                                      <h3 style={{ color: "#4e73df", marginBottom: "1rem" }}>{item.title}</h3>
+                                      <div style={{ lineHeight: "1.6" }}>
+                                        {item.description.split("\n").map((line, index) => {
+                                          if (line.trim().startsWith("*")) {
+                                            return null; // handled below in list block
+                                          }
+                                          if (line.trim().toLowerCase().includes("core values")) {
+                                            return <h5 key={index} style={{ marginTop: "1.5rem", color: "#4e73df" }}>{line.trim()}</h5>;
+                                          }
+                                          return <p key={index}>{line}</p>;
+                                        })}
+                                
+                                        {/* Main List */}
                                         <ul style={{ paddingLeft: "1.2rem" }}>
-                                            <li>Careful selection of only the finest quality products</li>
-                                            <li>Supporting our employees' growth in a thriving work environment</li>
-                                            <li>Designing products that support healthy living</li>
-                                            <li>Building strong partnerships with retailers across the UAE</li>
+                                          {item.description.split("\n").filter(line => line.trim().startsWith("*")).map((line, liIndex) => {
+                                            const content = line.replace(/^\*\s*/, "");
+                                            const parts = content.split(":");
+                                            if (parts.length > 1) {
+                                              return <li key={liIndex}><strong>{parts[0]}:</strong> {parts.slice(1).join(":").trim()}</li>;
+                                            }
+                                            return <li key={liIndex}>{content}</li>;
+                                          })}
                                         </ul>
-                                        <h5 style={{ marginTop: "1.5rem", color: "#4e73df" }}>Core Values:</h5>
-                                        <ul style={{ paddingLeft: "1.2rem" }}>
-                                            <li><strong>Quality:</strong> Top-tier products from reliable, ethical suppliers</li>
-                                            <li><strong>Integrity:</strong> Business conducted with honesty and transparency</li>
-                                            <li><strong>Customer Focus:</strong> Exceeding expectations in every interaction</li>
-                                            <li><strong>Sustainability:</strong> Responsibly sourced and sustainably grown products</li>
-                                            <li><strong>Innovation:</strong> Continuously improving to stay ahead of trends</li>
-                                        </ul>
+                                      </div>
                                     </div>
-                                </div>
-                            </Col>
+                                  </Col>
+                                )
+                            }
+                           
 
                             <Col md={6}>
                                 <div style={{

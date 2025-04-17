@@ -13,6 +13,11 @@ const nextConfig = {
             hostname: "api.blue-whale.hostdivine.com",
             pathname: "/uploads/**",
         },
+        {
+          protocol: "http",
+          hostname: "api.blue-whale.hostdivine.com",
+          pathname: "/uploads/**",
+      },
         ],
       },
 }

@@ -1,5 +1,8 @@
+"use client"
+
 import Link from "next/link";
 import Image from "next/image";
+import { useGetSingleContentQuery } from "@/redux/Api/feature/contentApi";
 
 const about_content = {
     title: "Welcome to Blue whale",
@@ -13,6 +16,25 @@ const about_content = {
 }
 const { title, des, list, btn } = about_content;
 const About = ({ style }) => {
+
+    const {data,isSuccess}=useGetSingleContentQuery()
+
+    if (!isSuccess || !data?.data) return null;
+
+    const { title, description, buttonText, buttonLink, imageUrl } = data.data;
+
+    // Split the description by new lines
+    const descriptionLines = description?.split('\n') || [];
+
+    // Filter description lines into main text and bullet points
+    const des = descriptionLines.find(line => !line.trim().startsWith('*'));
+    const list = descriptionLines
+        .filter(line => line.trim().startsWith('*'))
+        .map(line => line.replace(/^\*\s*/, ''));
+
+
+        // console.log(list);
+        
     return (
         <section className={`${style ? "inner-about-padding" : "about-area"}`}>
             <div className="container">
@@ -24,8 +46,8 @@ const About = ({ style }) => {
                     </div>
                     <div className="col-lg-6 col-md-11">
                         <div className="about-content">
-                            <h2 className="title text-uppercase">{title}</h2>
-                            <p>{des}</p>
+                            <h2 className="title text-uppercase">{isSuccess&&data.data.title}</h2>
+                            {des && <p>{des}</p>}
                             <ul className="about-list">
                                 {list.map((li, index) => (
                                     <li key={index}>{li}</li>

@@ -1,3 +1,5 @@
+"use client"
+
 import Breadcrumb from "@/common/breadcrumb";
 import About from "@/common/about";
 import Counter from "@/common/counter";
@@ -8,8 +10,19 @@ import Testimonial from "@/common/testimonial";
 import Blog from "@/common/blog";
 import Header from "@/layout/headers/header";
 import MissionVision from "../mission-vission/MissionVision";
+import { useGetContentByParentQuery, useGetContentBySlugQuery } from "@/redux/Api/feature/contentApi";
 
 const AboutMain = () => {
+  const { data: contentData, isSuccess: contentSuccess } = useGetContentBySlugQuery("about-us");
+  const parentId = contentSuccess ? contentData?.data?.Id : null;
+
+  const {
+    data: childContentData,
+    isSuccess: childSuccess,
+    isLoading: childLoading,
+  } = useGetContentByParentQuery(parentId, {
+    skip: !parentId,
+  });
   return (
     <>
       <Header />
@@ -18,7 +31,7 @@ const AboutMain = () => {
         <About style={true} />
         <Counter style={true} />
 
-        <MissionVision/>
+        <MissionVision childContentData={childContentData}/>
         <Team />
         <StepsArea style={true} />
         <Marquee />

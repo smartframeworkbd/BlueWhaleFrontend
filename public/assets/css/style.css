@@ -3862,9 +3862,9 @@ blockquote::before {
   
   .product-title {
 	font-size: 3rem; /* Adjust the size as needed */
-	color: #00ADEF; /* White color for the title */
+	color: #14489db9; /* White color for the title */
 	margin-bottom: 20px; /* Adds space below the title */
-	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Adds a shadow for better readability */
+	text-shadow: 2px 2px 4px rgba(77, 68, 68, 0.5); 
   }
 
 

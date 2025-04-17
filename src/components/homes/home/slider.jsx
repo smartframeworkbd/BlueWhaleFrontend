@@ -8,6 +8,7 @@ import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 import 'swiper/css/effect-fade';
 import 'bootstrap/dist/css/bootstrap.min.css';
+import { useGetBannersQuery } from '@/redux/Api/feature/bannerApi';
 
 // Custom CSS for additional styling with blue theme
 const styles = {
@@ -98,6 +99,9 @@ const products = [
     readMoreLink: '/products',
     contactLink: '/product',
   },
+
+
+
   {
     id: 3,
     title: 'Nourishing Innovations for a Healthier Life',
@@ -125,6 +129,9 @@ const products = [
 ];
 
 export default function ProductSlider() {
+
+  const {data,isLoading,isSuccess}=useGetBannersQuery()
+  // console.log(data)
   return (
     <div className="container-fluid p-0">
       <Swiper
@@ -138,13 +145,13 @@ export default function ProductSlider() {
         loop={true}
         className="product-slider"
       >
-        {products.map((product) => (
+        {isSuccess && data?.data?.map((product) => (
           <SwiperSlide key={product.id}>
             <div style={styles.slider}>
               {/* Background image */}
               <div style={styles.imageContainer}>
                 <img 
-                  src={product.image || "/api/placeholder/1920/1080"} 
+                  src={product.imageUrl || "/api/placeholder/1920/1080"} 
                   alt={product.title}
                   style={styles.image}
                   className="img-hover"
@@ -160,8 +167,13 @@ export default function ProductSlider() {
                   {/* Left side: Product info */}
                   <div className="col-md-6 d-flex flex-column justify-content-center text-white" style={styles.content}>
                     <h2 className="display-4 mb-3" style={styles.title}>{product.title}</h2>
-                    <p className="lead mb-4" style={styles.description}>{product.description}</p>
+                    <p className="lead mb-4" style={styles.description}>{product.shortDescription}</p>
                     <div className="d-flex flex-wrap gap-3 justify-content-center">
+                    
+                    {/* {
+                      product.button
+                    } */}
+                    
                       <a 
                         href={product.readMoreLink} 
                         className="btn btn-lg px-4 py-2"
