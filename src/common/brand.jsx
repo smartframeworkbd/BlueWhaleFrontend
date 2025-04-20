@@ -2,6 +2,7 @@
 import Link from 'next/link'
 import Image from "next/image";
 import Slider from 'react-slick'
+import { useGetPartnersQuery } from '@/redux/Api/feature/partnersApi';
 
 const brand_data = [
     {
@@ -85,6 +86,8 @@ const settings = {
     ]
 }
 const Brand = ({ style_2, style_3, }) => {
+
+    const {data,isSuccess}=useGetPartnersQuery()
     return (
         <section className={`brand-area ${style_2 ? "brand-two-area" : "" || style_3 ? "brand-three-area" : ""}`}>
             <div className="container">
@@ -96,11 +99,11 @@ const Brand = ({ style_2, style_3, }) => {
                     </div>
                     <div className="row brand-active">
                         <Slider {...settings}>
-                            {brand_data.map((item) => (
+                            {isSuccess && data?.data.map((item) => (
                                 <div key={item.id} className="col-2">
                                     <div className="brand-item">
                                         <Link href="#">
-                                            <Image src={item.img} width={item.width} height={item.height} alt="Brand Logo" />
+                                            <Image src={item.image} width={121} height={48} alt="Brand Logo" />
                                         </Link>
                                     </div>
                                 </div>

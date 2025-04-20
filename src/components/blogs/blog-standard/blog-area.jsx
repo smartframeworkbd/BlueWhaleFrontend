@@ -1,6 +1,9 @@
+
+"use client"
 import Link from "next/link"
 import BlogSidebar from "./blog-sidebar"
 import Image from "next/image"
+import { useGetAllBlogsQuery } from "@/redux/Api/feature/blogApi"
 
 const post_content = [
     {
@@ -45,15 +48,17 @@ const post_content = [
     },
 ]
 const BlogPost = () => {
+
+    const {data,isSuccess}=useGetAllBlogsQuery()
     return (
         <section className="standard-blog-area inner-blog-area">
             <div className="container">
                 <div className="row justify-content-center">
                     <div className="col-xl-8 col-lg-7">
-                        {post_content.map((item) => (
+                        {isSuccess&& data?.data.map((item) => (
                             <div key={item.id} className="standard-blog-post">
                                 <div className="standard-post-thumb">
-                                    <Link href="/blog-details"><Image src={item.thumb} width={950} height={599} alt="img" /></Link>
+                                    <Link href="/blog-details"><Image src={item.image} width={950} height={599} alt="img" /></Link>
                                 </div>
                                 <div className="standard-post-content">
                                     <h2 className="title"><Link href="/blog-details">{item.title}</Link></h2>

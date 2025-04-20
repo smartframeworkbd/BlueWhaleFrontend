@@ -3,8 +3,20 @@
 import Image from "next/image"
 import BlogSidebar from "../blog-standard/blog-sidebar"
 import Link from "next/link"
+import { useGetBlogByIdQuery } from "@/redux/Api/feature/blogApi"
 
-const BlogDetailsArea = () => {
+const BlogDetailsArea = ({Id}) => {
+    const { data, isSuccess, isLoading, isError } = useGetBlogByIdQuery({ Id });
+
+    if (isLoading) {
+      return <p className="text-center py-10">Loading...</p>;
+    }
+  
+    if (isError || !data?.data) {
+      return <p className="text-center text-red-500 py-10">Failed to load blog.</p>;
+    }
+  
+    const { title, content, image,createdAt} = data?.data;
     return (
         <section className="standard-blog-area inner-blog-area blog-details-area">
             <div className="container">
@@ -12,23 +24,23 @@ const BlogDetailsArea = () => {
                     <div className="col-xl-8 col-lg-7">
                         <div className="standard-blog-post">
                             <div className="standard-post-thumb">
-                                <Image src="/assets/img/blog/standard_thumb01.jpg" width={950} height={599} alt="img" />
+                                <Image src={image} width={950} height={599} alt="img" />
                             </div>
                             <div className="standard-post-content blog-details-content">
-                                <h2 className="title">Five Strategies to Optimize Cloud Security in 2019</h2>
+                                <h2 className="title">{title}</h2>
                                 <ul className="standard-post-meta list-wrap">
-                                    <li><i className="far fa-calendar-alt"></i> March 17, 2023</li>
-                                    <li><i className="far fa-user"></i><a href="#">Amos Mack</a></li>
-                                    <li><i className="far fa-bookmark"></i><a href="#">uncategorized</a></li>
+                                    <li><i className="far fa-calendar-alt"></i>{createdAt}</li>
+                                    {/* <li><i className="far fa-user"></i><a href="#">Amos Mack</a></li>
+                                    <li><i className="far fa-bookmark"></i><a href="#">uncategorized</a></li> */}
                                 </ul>
                                 <div className="post-text">
-                                    <p>Nam libero tempore, cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat possimus omnis voluptas assumenda est, omnis dolor repellendus. Temporibus autem quibusdam aut officiis debitis aut necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur a sapiente delectus, ut aut reiciendis voluptatibus maiores alias consequatur</p>
-                                    <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum fuga harum quidem expedita distinctio</p>
+                                    <p>{content}</p>
+                                    {/* <p>Accusamus et iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum fuga harum quidem expedita distinctio</p>
                                     <blockquote>
                                         <p>“Temporibus autem quibusdam aut officiis debitis aut necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae”</p>
                                     </blockquote>
                                     <p>Iusto odio dignissimos ducimus qui blanditiis praesentium voluptatum deleniti atque corrupti quos dolores quas molestias excepturi sint occaecati cupiditate non provident, similique sunt in culpa qui officia deserunt mollitia animi laborum dolorum fuga harum quidem expedita distinctio</p>
-                                    <p>Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat possimus omnis voluptas est omnis dolor repellendus. Temporibus autem quibusdam aut officiis debitis aut necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur</p>
+                                    <p>Cum soluta nobis est eligendi optio cumque nihil impedit quo minus id quod maxime placeat possimus omnis voluptas est omnis dolor repellendus. Temporibus autem quibusdam aut officiis debitis aut necessitatibus saepe eveniet ut et voluptates repudiandae sint et molestiae non recusandae. Itaque earum rerum hic tenetur</p> */}
                                 </div>
                                 <div className="blog-details-bottom">
                                     <div className="post-share">
@@ -110,7 +122,7 @@ const BlogDetailsArea = () => {
                             </div>
                         </div> */}
                     </div>
-                    <BlogSidebar />
+                    {/* <BlogSidebar /> */}
                 </div>
             </div>
         </section>
