@@ -23,6 +23,8 @@ const AboutMain = () => {
   } = useGetContentByParentQuery(parentId, {
     skip: !parentId,
   });
+
+  console.log(childContentData)
   return (
     <>
       <Header />
@@ -31,7 +33,7 @@ const AboutMain = () => {
         <About style={true} />
         <Counter style={true} />
 
-        <MissionVision childContentData={childContentData}/>
+        <MissionVision childContentData={childSuccess&& childContentData.data}/>
         <Team />
         <StepsArea style={true} />
         <Marquee />

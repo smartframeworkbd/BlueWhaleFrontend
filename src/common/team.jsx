@@ -1,8 +1,13 @@
+"use client"
+
 import team_data from "@/data/team-data"
+import { useGetTeamsQuery } from "@/redux/Api/feature/teamsApi"
 import Image from "next/image"
 import Link from "next/link"
 
 const Team = ({ inner_team }) => {
+
+    const {data,isSuccess}=useGetTeamsQuery()
     return (
         <section className={`${inner_team ? "inner-team-padding" : "team-area team-bg"}`}>
             <div className="container">
@@ -15,11 +20,11 @@ const Team = ({ inner_team }) => {
                 </div>
                 <div className="team-wrapper">
                     <div className="row justify-content-center justify-content-lg-between">
-                        {team_data.map((item) => (
+                        {isSuccess && data?.data?.map((item) => (
                             <div key={item.id} className="col-lg-3 col-md-4 col-sm-6">
                                 <div className="team-item">
                                     <div className="team-thumb">
-                                        <Image src={item.img} width={170} height={171} alt="img" />
+                                        <Image src={item.image} width={170} height={171} alt="img" />
                                     </div>
                                     <div className="team-content">
                                         <h4 className="name">{item.name}</h4>
