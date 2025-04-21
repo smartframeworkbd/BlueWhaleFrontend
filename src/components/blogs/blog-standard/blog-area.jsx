@@ -62,12 +62,12 @@ const BlogPost = () => {
                                 </div>
                                 <div className="standard-post-content">
                                     <h2 className="title"><Link href="/blog-details">{item.title}</Link></h2>
-                                    <ul className="standard-post-meta list-wrap">
+                                    {/* <ul className="standard-post-meta list-wrap">
                                         {item.meta.map((li, i) => (
                                             li.link ? (<li key={i}><i className={li.icon}></i><Link href="#">{li.list}</Link></li>) :
                                                 (<li key={i}><i className={li.icon}></i>{li.list}</li>)
                                         ))}
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                         ))}

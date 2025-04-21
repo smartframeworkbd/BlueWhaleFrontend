@@ -7,7 +7,7 @@ const BlogGrid = () => {
     <>
       <Header />
       <main>
-        <Breadcrumb title="Blog Grid" sm_title="Blog Grid" />
+        <Breadcrumb title="Blogs " sm_title="Blogs" />
         <BlogGridArea />
       </main>
     </>

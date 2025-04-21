@@ -1,4 +1,7 @@
+"use client"
+
 import Count from "@/common/count";
+import { useGetGlobalConfigByIdQuery, useLazyGetGlobalConfigByIdQuery } from "@/redux/Api/feature/globalConfigApi";
 
 const counter_data = [
     {
@@ -32,6 +35,8 @@ const formatNumber = (num) => {
 };
 
 const Counter = ({ style }) => {
+    const {data,isLoading}=useGetGlobalConfigByIdQuery(1)
+    console.log(data)
     return (
         <section className={`${style ? "inner-fact-padding" : "fact-area"}`}>
             <div className="container">

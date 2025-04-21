@@ -22,6 +22,8 @@ import Welcomesection from "@/components/welcome/welcomesection"
 import HomePageProduct from "@/components/HomePageProduct/HomePageProduct"
 
 const Home = () => {
+
+  
   return (
     <>
       <Header />

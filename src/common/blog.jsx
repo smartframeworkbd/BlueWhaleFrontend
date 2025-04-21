@@ -3,6 +3,7 @@ import Image from "next/image";
 import blog_data from '@/data/blog-data'
 import Link from 'next/link'
 import Slider from 'react-slick'
+import { useGetAllBlogsQuery } from "@/redux/Api/feature/blogApi";
 
 const settings = {
     dots: true,
@@ -48,6 +49,7 @@ const settings = {
     ]
 }
 const Blog = ({ style, style_2 }) => {
+    const {data,isSuccess}=useGetAllBlogsQuery()
     const slicedBlog = blog_data.slice(0, 5);
     return (
         <section className={`blog-area ${style ? "about-page-blog" : "" || style_2 ? "blog-two-area" : ""}`}>
@@ -61,19 +63,19 @@ const Blog = ({ style, style_2 }) => {
                 </div>
                 <div className="row blog-active">
                     <Slider {...settings}>
-                        {slicedBlog.map((item) => (
+                        {isSuccess && data?.data.map((item) => (
                             <div key={item.id} className="col-xl-3">
                                 <div className="blog-post-item">
                                     <div className="blog-post-thumb">
                                         <Link href="/blog-details">
-                                            <Image src={item.img} width={338} height={296} alt="img" />
+                                            <Image src={item.image||""} width={338} height={296} alt="img" />
                                         </Link>
                                     </div>
                                     <div className="blog-post-content">
                                         <h3 className="title">
                                             <Link href="/blog-details">{item.title}</Link>
                                         </h3>
-                                        <span className="post-date">{item.date}</span>
+                                        {/* <span className="post-date">{item.date}</span> */}
                                     </div>
                                 </div>
                             </div>
