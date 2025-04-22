@@ -3,7 +3,7 @@
 import { useGetGlobalConfigByIdQuery } from "@/redux/Api/feature/globalConfigApi";
 
 const Counter = ({ style }) => {
-    const { data, isSuccess } = useGetGlobalConfigByIdQuery(2);
+    const { data, isSuccess } = useGetGlobalConfigByIdQuery(1);
 
     const counters = [
         {

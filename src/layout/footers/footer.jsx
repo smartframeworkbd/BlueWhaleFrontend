@@ -38,7 +38,7 @@ const footer_content = {
 const { number, email, des, icon } = footer_content;
 const Footer = () => {
 
-    const {data,isSuccess}=useGetGlobalConfigByIdQuery(2)
+    const {data,isSuccess}=useGetGlobalConfigByIdQuery(1)
     // console.log(data,isSuccess,"SDFASDFsdfasdfsd");
     const contactPhone = isSuccess ? data?.data?.contactPhone : '';
     const contactEmail = isSuccess ? data?.data?.contactEmail : '';
@@ -47,7 +47,7 @@ const Footer = () => {
     const twitterLink = isSuccess ? data?.data?.twitterLink : '#';
     const instagramLink = isSuccess ? data?.data?.instagramLink : '#';
     const siteLogo = isSuccess ? data?.data?.siteLogo : '';
-
+  const footerText=isSuccess ? data?.data?.footerText : '';
     return (
         <footer className="footer-area footer-bg" style={{backgroundImage:`url(/assets/img/bg/footer_bg.jpg)`}}>
             <div className="container">
@@ -58,8 +58,8 @@ const Footer = () => {
                                 <div className="footer-contact-info">
                                 {/* <h4 className="number">""</h4> */}
 
-                                <Image  src="/assets/img/logo/logo-final.png" height={100} width={200}/>
-
+                                <Image  src={siteLogo||"/assets/img/logo/logo-final.png"} height={100} width={200}/>
+<p>{footerText}</p>
                                     {/* <h4 className="number">{number}</h4>
                                     <h4 className="email">{email} </h4>
                                     <p>{des}</p>
