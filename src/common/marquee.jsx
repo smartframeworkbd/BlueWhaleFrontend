@@ -1,10 +1,10 @@
 const marquee = [
-    "We are always ready to protect your data",
-    "We are always ready to protect your data",
-    "We are always ready to protect your data",
-    "We are always ready to protect your data",
-    "We are always ready to protect your data",
-    "We are always ready to protect your data",
+    "We are always ready to serve your product",
+    "We are always ready to serve your product",
+    "We are always ready to serve your product",
+    "We are always ready to serve your product",
+    "We are always ready to serve your product",
+    "We are always ready to serve your product",
 ]
 const Marquee = ({ style }) => {
     return (
