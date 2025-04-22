@@ -88,8 +88,8 @@ const Footer = () => {
                                 <div className="footer-contact-info">
                                 {/* <h4 className="number">""</h4> */}
 
-                                    <h4 className="number">{isSuccess&& data.data.contactPhone}</h4>
-                                    <h4 className="email">{isSuccess&& data.data.contactEmail} </h4>
+                                    <h4 className="number">{isSuccess&& data?.data?.contactPhone}</h4>
+                                    <h4 className="email">{isSuccess&& data?.data?.contactEmail} </h4>
                                     <p>{address}</p>
                                     <ul className="footer-social list-wrap">
                                     <li key={1}><Link href={facebookLink}><i className={icon[0]}></i></Link></li>
