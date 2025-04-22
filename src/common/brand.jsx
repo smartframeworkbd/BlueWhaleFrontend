@@ -3,6 +3,7 @@ import Link from 'next/link'
 import Image from "next/image";
 import Slider from 'react-slick'
 import { useGetPartnersQuery } from '@/redux/Api/feature/partnersApi';
+import { useGetGlobalConfigByIdQuery } from '@/redux/Api/feature/globalConfigApi';
 
 const brand_data = [
     {
@@ -86,6 +87,8 @@ const settings = {
     ]
 }
 const Brand = ({ style_2, style_3, }) => {
+        const { data:GlobalData, isSuccess:globalSuccess } = useGetGlobalConfigByIdQuery(1);
+    
 
     const {data,isSuccess}=useGetPartnersQuery()
     return (
@@ -94,7 +97,10 @@ const Brand = ({ style_2, style_3, }) => {
                 <div className="brand-wrap">
                     <div className="row">
                         <div className="col-12">
-                            <h4 className="brand-title">Trusted by more than <span>+750</span> companies around the globe</h4>
+                            {
+                                globalSuccess &&<h4 className="brand-title">{GlobalData.data.partnersText}</h4>
+
+                            }
                         </div>
                     </div>
                     <div className="row brand-active">

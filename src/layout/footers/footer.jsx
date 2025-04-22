@@ -1,4 +1,6 @@
 "use client"
+import { useGetGlobalConfigByIdQuery } from '@/redux/Api/feature/globalConfigApi';
+import Image from 'next/image';
 import Link from 'next/link'
 
 const footer_data = [
@@ -36,6 +38,16 @@ const footer_content = {
 const { number, email, des, icon } = footer_content;
 const Footer = () => {
 
+    const {data,isSuccess}=useGetGlobalConfigByIdQuery(2)
+    // console.log(data,isSuccess,"SDFASDFsdfasdfsd");
+    const contactPhone = isSuccess ? data?.data?.contactPhone : '';
+    const contactEmail = isSuccess ? data?.data?.contactEmail : '';
+    const address = isSuccess ? data?.data?.address : '';
+    const facebookLink = isSuccess ? data?.data?.facebookLink : '#';
+    const twitterLink = isSuccess ? data?.data?.twitterLink : '#';
+    const instagramLink = isSuccess ? data?.data?.instagramLink : '#';
+    const siteLogo = isSuccess ? data?.data?.siteLogo : '';
+
     return (
         <footer className="footer-area footer-bg" style={{backgroundImage:`url(/assets/img/bg/footer_bg.jpg)`}}>
             <div className="container">
@@ -46,14 +58,16 @@ const Footer = () => {
                                 <div className="footer-contact-info">
                                 {/* <h4 className="number">""</h4> */}
 
-                                    <h4 className="number">{number}</h4>
+                                <Image  src="/assets/img/logo/logo-final.png" height={100} width={200}/>
+
+                                    {/* <h4 className="number">{number}</h4>
                                     <h4 className="email">{email} </h4>
                                     <p>{des}</p>
                                     <ul className="footer-social list-wrap">
                                         {icon.map((li, i) => (
                                             <li key={i}><Link href="#"><i className={li}></i></Link></li>
                                         ))}
-                                    </ul>
+                                    </ul> */}
                                 </div>
                             </div>
                         </div>
@@ -69,17 +83,29 @@ const Footer = () => {
                                 </div>
                             </div>
                         ))}
-                        <div className="col-xxl-4 col-xl-3 col-lg-4 col-md-6 col-sm-7">
+                          <div className="col-xl-3 col-lg-4 col-sm-6">
                             <div className="footer-widget">
-                                <form onSubmit={(e) => e.preventDefault()} className="newsletter-form">
-                                    <div className="form-grp">
-                                        <input type="email" required placeholder="Your email address" />
-                                    </div>
-                                    <button type="submit" className="btn">Subscribe now <span className="shape"></span></button>
-                                    <p className="newsletter-alert"><span>*</span> Don&apos;t worry, we don&apos;t spam</p>
-                                </form>
+                                <div className="footer-contact-info">
+                                {/* <h4 className="number">""</h4> */}
+
+                                    <h4 className="number">{isSuccess&& data.data.contactPhone}</h4>
+                                    <h4 className="email">{isSuccess&& data.data.contactEmail} </h4>
+                                    <p>{address}</p>
+                                    <ul className="footer-social list-wrap">
+                                    <li key={1}><Link href={facebookLink}><i className={icon[0]}></i></Link></li>
+                                    <li key={2}><Link href={twitterLink}><i className={icon[1]}></i></Link></li>
+                                    <li key={3}><Link href={instagramLink}><i className={icon[2]}></i></Link></li>
+
+                                        {/* {icon.map((li, i) => (
+                                            <li key={i}><Link href=""><i className={li}></i></Link></li>
+                                        ))} */}
+                                    </ul>
+                                </div>
                             </div>
                         </div>
+
+
+                    
                     </div>
                 </div>
                 <div className="copyright-wrap">
