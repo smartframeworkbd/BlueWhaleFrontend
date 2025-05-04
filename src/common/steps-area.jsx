@@ -4,21 +4,21 @@ const steps_data = [
     {
         id: 1,
         image: { img: "/assets/img/others/steps_01.png", width: 266, height: 240 },
-        title: "Choose Security Package",
+        title: "Betel Nuts Whole",
         des: (<>Nam libero tempore soluta nobis eligendi optio cumque minus quod maxime</>),
         count: "step one",
     },
     {
         id: 2,
         image: { img: "/assets/img/others/steps_02.png", width: 264, height: 240 },
-        title: "Prepare for Security Test",
+        title: "red ruby rice",
         des: (<>Nam libero tempore soluta nobis eligendi optio cumque minus quod maxime</>),
         count: "step Two",
     },
     {
         id: 3,
         image: { img: "/assets/img/others/steps_03.png", width: 248, height: 240 },
-        title: "Get the Result & Solutions",
+        title: "Cooking Oil",
         des: (<>Nam libero tempore soluta nobis eligendi optio cumque minus quod maxime</>),
         count: "step Three",
     },
@@ -30,7 +30,7 @@ const StepsArea = ({ style }) => {
                 <div className="row justify-content-center">
                     <div className="col-xl-6 col-lg-8 col-md-10">
                         <div className="section-title text-center mb-55">
-                            <h2 className="title">Become Totally Secured by Following 3 Steps</h2>
+                            <h2 className="title">Oder your product</h2>
                         </div>
                     </div>
                 </div>
