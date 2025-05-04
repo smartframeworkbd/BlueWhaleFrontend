@@ -1,4 +1,4 @@
-"use client"
+"use client";
 
 import Breadcrumb from "@/common/breadcrumb";
 import About from "@/common/about";
@@ -10,10 +10,14 @@ import Testimonial from "@/common/testimonial";
 import Blog from "@/common/blog";
 import Header from "@/layout/headers/header";
 import MissionVision from "../mission-vission/MissionVision";
-import { useGetContentByParentQuery, useGetContentBySlugQuery } from "@/redux/Api/feature/contentApi";
+import {
+  useGetContentByParentQuery,
+  useGetContentBySlugQuery,
+} from "@/redux/Api/feature/contentApi";
 
 const AboutMain = () => {
-  const { data: contentData, isSuccess: contentSuccess } = useGetContentBySlugQuery("about-us");
+  const { data: contentData, isSuccess: contentSuccess } =
+    useGetContentBySlugQuery("about-us");
   const parentId = contentSuccess ? contentData?.data?.Id : null;
 
   const {
@@ -24,7 +28,7 @@ const AboutMain = () => {
     skip: !parentId,
   });
 
-  console.log(childContentData)
+  console.log("test", childContentData);
   return (
     <>
       <Header />
@@ -33,7 +37,9 @@ const AboutMain = () => {
         <About style={true} />
         <Counter style={true} />
 
-        <MissionVision childContentData={childSuccess&& childContentData.data}/>
+        <MissionVision
+          childContentData={childSuccess && childContentData.data}
+        />
         <Team />
         <StepsArea style={true} />
         <Marquee />
@@ -41,7 +47,7 @@ const AboutMain = () => {
         <Blog style={true} />
       </main>
     </>
-  )
-}
+  );
+};
 
 export default AboutMain;

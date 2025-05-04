@@ -10,10 +10,8 @@ const BlogGridArea = () => {
   const [selectedCategoryId, setSelectedCategoryId] = useState(null);
 
   const { data, isSuccess } = useGetAllBlogsQuery();
-  const {
-    data: blogCategoryData,
-    isSuccess: blogCategorySuccess,
-  } = useGetAllBlogCategoryQuery();
+  const { data: blogCategoryData, isSuccess: blogCategorySuccess } =
+    useGetAllBlogCategoryQuery();
 
   const filteredBlogs =
     selectedCategoryId && isSuccess
@@ -21,7 +19,13 @@ const BlogGridArea = () => {
       : data?.data;
 
   return (
-    <section className="blog-area inner-blog-area">
+    <section
+      className="blog-area inner-blog-area "
+      style={{
+        // backgroundImage: `url(/assets/img/bg/footer_bg.jpg)`,
+        background: "#011529",
+      }}
+    >
       <div className="container">
         <div className="row">
           {/* Blog posts - 9 columns */}
@@ -60,43 +64,42 @@ const BlogGridArea = () => {
 
           {/* Sidebar - 3 columns */}
           <div className="col-xl-3">
-  <div className="bg-white/5 backdrop-blur-md p-5 rounded-2xl shadow-md border border-white/10">
-    <h4 className="text-lg font-semibold text-white mb-4 border-b border-white/10 pb-2">
-      Blog Categories
-    </h4>
-    <ul className="space-y-3">
-      <li>
-        <span
-          onClick={() => setSelectedCategoryId(null)}
-          className={`text-left w-full transition-all px-3 py-2 rounded-lg ${
-            selectedCategoryId === null
-              ? "bg-white/10 text-white font-bold"
-              : "text-gray-300 hover:text-white hover:bg-white/10"
-          }`}
-        >
-          All Categories
-        </span>
-      </li>
+            <div className="bg-white/5 backdrop-blur-md p-5 rounded-2xl shadow-md border border-white/10">
+              <h4 className="text-lg font-semibold text-white mb-4 border-b border-white/10 pb-2">
+                Blog Categories
+              </h4>
+              <ul className="space-y-3">
+                <li>
+                  <span
+                    onClick={() => setSelectedCategoryId(null)}
+                    className={`text-left w-full transition-all px-3 py-2 rounded-lg ${
+                      selectedCategoryId === null
+                        ? "bg-white/10 text-white font-bold"
+                        : "text-gray-300 hover:text-white hover:bg-white/10"
+                    }`}
+                  >
+                    All Categories
+                  </span>
+                </li>
 
-      {blogCategorySuccess &&
-        blogCategoryData?.data.map((category) => (
-          <li key={category.Id}>
-            <span
-              onClick={() => setSelectedCategoryId(category.Id)}
-              className={`text-left w-full transition-all px-3 py-2 rounded-lg ${
-                selectedCategoryId === category.Id
-                  ? "bg-white/10 text-white font-bold"
-                  : "text-gray-300 hover:text-white hover:bg-white/10"
-              }`}
-            >
-              {category.categoryName}
-            </span>
-          </li>
-        ))}
-    </ul>
-  </div>
-</div>
-
+                {blogCategorySuccess &&
+                  blogCategoryData?.data.map((category) => (
+                    <li key={category.Id}>
+                      <span
+                        onClick={() => setSelectedCategoryId(category.Id)}
+                        className={`text-left w-full transition-all px-3 py-2 rounded-lg ${
+                          selectedCategoryId === category.Id
+                            ? "bg-white/10 text-white font-bold"
+                            : "text-gray-300 hover:text-white hover:bg-white/10"
+                        }`}
+                      >
+                        {category.categoryName}
+                      </span>
+                    </li>
+                  ))}
+              </ul>
+            </div>
+          </div>
         </div>
 
         {/* Pagination - optional */}
